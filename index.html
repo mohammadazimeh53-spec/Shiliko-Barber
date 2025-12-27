@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Shiliko Barber</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Header med logga -->
+<header>
+    <img src="1.png" alt="Shiliko Barber Logo" class="logo">
+    <h1>SHILIKO BARBER</h1>
+    <p>Professional barber & grooming</p>
+</header>
+
+<!-- Navigation -->
+<nav>
+    <a href="#hem">Home</a>
+    <a href="#tjanster">Services</a>
+    <a href="#boka">Book Appointment</a>
+</nav>
+
+<!-- Home Section -->
+<section id="hem">
+    <h2>Welcome</h2>
+    <p>Welcome to Shiliko Barber – your place for style and confidence.</p>
+</section>
+
+<!-- Services Section -->
+<section id="tjanster">
+    <h2>Our Services</h2>
+
+    <div class="service">
+        <p>Men Fade</p>
+        <span>50 kr</span>
+    </div>
+
+    <div class="service">
+        <p>Kids Fade</p>
+        <span>30 kr</span>
+    </div>
+
+    <div class="service">
+        <p>Men Haircut with Fade</p>
+        <span>70 kr</span>
+    </div>
+
+    <div class="service">
+        <p>Kids Haircut with Fade</p>
+        <span>50 kr</span>
+    </div>
+</section>
+
+<!-- Booking Section -->
+<section id="boka">
+    <h2>Book an Appointment</h2>
+
+    <form id="bookingForm">
+        <input type="text" placeholder="Your Name" required><br>
+        <input type="email" placeholder="Your Email" required><br>
+        <input type="tel" placeholder="Phone Number" required><br>
+
+        <select required>
+            <option value="">Select Service</option>
+            <option>Men Fade - 50 kr</option>
+            <option>Kids Fade - 30 kr</option>
+            <option>Men Haircut with Fade - 70 kr</option>
+            <option>Kids Haircut with Fade - 50 kr</option>
+        </select><br>
+
+        <input type="date" required><br>
+        <button type="submit">Book Now</button>
+    </form>
+
+    <p id="confirmation" style="display:none; margin-top:20px; color:#c59d5f; font-weight:bold;"></p>
+</section>
+
+<!-- JavaScript för bokning -->
+<script>
+    const form = document.getElementById('bookingForm');
+    const confirmation = document.getElementById('confirmation');
+
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        const name = form.querySelector('input[type="text"]').value;
+        const email = form.querySelector('input[type="email"]').value;
+        const service = form.querySelector('select').value;
+        const date = form.querySelector('input[type="date"]').value;
+
+        confirmation.style.display = 'block';
+        confirmation.innerHTML = `
+            Thank you <strong>${name}</strong>!<br>
+            You have booked: <strong>${service}</strong> on <strong>${date}</strong>.<br>
+            We will contact you at <strong>${email}</strong>.<br><br>
+            <strong>Address:</strong> Shiliko Barber, Rödhakevägen 67
+        `;
+
+        form.reset();
+    });
+</script>
+<!-- Contact Section -->
+<section id="kontakt">
+    <h2>Contact Us</h2>
+    <p><strong>Address:</strong> Rödhakevägen 67</p>
+    <p><strong>Phone:</strong> <a href="tel:0707231674">070-723 16 74</a></p>
+    <p><strong>Email:</strong> <a href="mailto:mohammad.azimeh53@gmail.com">mohammad.azimeh53@gmail.com</a></p>
+</section>
+
+
+
