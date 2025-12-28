@@ -1,117 +1,190 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="sv">
 <head>
-    <meta charset="UTF-8">
-    <title>Shiliko Barber</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SHILIKO BARBER</title>
+  <style>
+    /* --- Bas & Reset --- */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: Arial, sans-serif; background: #1a1a1a; color: #f0f0f0; line-height: 1.5; }
+
+    /* --- Header --- */
+    header { background: #111; padding: 25px; box-shadow: 0 4px 10px rgba(0,0,0,0.5); }
+    .header-content { display: flex; align-items: center; justify-content: center; gap: 15px; }
+    
+    /* --- LOGGA STÖRRE --- */
+    .logo { height: 100px; width: auto; } /* Större logga på desktop */
+
+    .header-text h1 { font-size: 2.5rem; margin-bottom: 5px; }
+    .header-text p { font-size: 1.1rem; color: #ccc; }
+
+    /* --- Navigation --- */
+    nav { display: flex; justify-content: center; background: #222; flex-wrap: wrap; box-shadow: 0 2px 5px rgba(0,0,0,0.4); }
+    nav a { color: #fff; padding: 15px 25px; text-decoration: none; font-weight: bold; transition: all 0.3s; }
+    nav a:hover { background: #ffcc00; color: #111; border-radius: 5px; }
+
+    /* --- Sektioner --- */
+    section { padding: 25px; background: #2b2b2b; margin: 15px auto; border-radius: 10px; max-width: 800px; box-shadow: 0 4px 10px rgba(0,0,0,0.5); }
+    section h2 { font-size: 1.8rem; margin-bottom: 20px; text-align: center; color: #ffcc00; }
+
+    /* --- Priser lista --- */
+    section ul { list-style: none; padding: 0; }
+    section ul li { margin: 10px 0; font-weight: bold; text-align: center; color: #eee; }
+
+    /* --- Formulär --- */
+    form { display: flex; flex-direction: column; max-width: 450px; margin: 0 auto; }
+    form input, form select, form button { padding: 14px; margin: 8px 0; font-size: 16px; border-radius: 8px; border: none; width: 100%; box-sizing: border-box; }
+    form input, form select { background: #3a3a3a; color: #fff; }
+    form input::placeholder, form select option { color: #ccc; }
+    form input:focus, form select:focus { outline: 2px solid #ffcc00; }
+    form button { background: #ffcc00; color: #111; font-weight: bold; cursor: pointer; transition: all 0.3s; }
+    form button:hover { background: #e6b800; transform: scale(1.05); }
+
+    /* --- Kontakt --- */
+    #contact p, #contact a { margin: 8px 0; font-size: 1rem; text-align: center; }
+    #contact a { color: #ffcc00; text-decoration: none; font-weight: bold; transition: color 0.3s; }
+    #contact a:hover { color: #fff; }
+
+    /* --- Footer --- */
+    footer { text-align: center; padding: 15px; background: #111; color: #ccc; margin-top: 20px; box-shadow: 0 -2px 5px rgba(0,0,0,0.5); }
+
+    /* --- Mobilanpassning --- */
+    @media (max-width: 600px) {
+      nav { flex-direction: column; }
+      nav a { margin: 5px 0; padding: 12px 0; }
+
+      .header-content { flex-direction: column; }
+      .logo { height: 70px; } /* Mindre logga på mobil */
+      .header-text h1 { font-size: 1.8rem; }
+      .header-text p { font-size: 1rem; }
+
+      section { margin: 10px; padding: 20px; }
+      section h2 { font-size: 1.4rem; }
+
+      form { max-width: 100%; padding: 0 10px; }
+      form button { font-size: 18px; padding: 16px; }
+
+      #contact p, #contact a { font-size: 1.1rem; }
+    }
+  </style>
+
+  <!-- EmailJS -->
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+  <script>
+    (function(){ emailjs.init("CzYCEvvTCoIUsF90j"); })();
+  </script>
+
 </head>
 <body>
 
-<!-- Header med logga -->
 <header>
-    <img src="1.png" alt="Shiliko Barber Logo" class="logo">
-    <h1>SHILIKO BARBER</h1>
-    <p>Professional barber & grooming</p>
+  <div class="header-content">
+    <!-- LÄGG DIN BILD HÄR i samma mapp som index.html -->
+    <img src="1.png" alt="SHILIKO BARBER Logga" class="logo">
+    <div class="header-text">
+      <h1>SHILIKO BARBER</h1>
+      <p>Professionell frisör</p>
+    </div>
+  </div>
 </header>
 
-<!-- Navigation -->
 <nav>
-    <a href="#hem">Home</a>
-    <a href="#tjanster">Services</a>
-    <a href="#boka">Book Appointment</a>
+  <a href="#about">Om oss</a>
+  <a href="#prices">Priser</a>
+  <a href="#book">Boka tid</a>
+  <a href="#contact">Kontakt</a>
 </nav>
 
-<!-- Home Section -->
-<section id="hem">
-    <h2>Welcome</h2>
-    <p>Welcome to Shiliko Barber – your place for style and confidence.</p>
+<section id="about">
+  <h2>Om oss</h2>
+  <p>Vi erbjuder professionell hårklippning för herrar och barn.</p>
 </section>
 
-<!-- Services Section -->
-<section id="tjanster">
-    <h2>Our Services</h2>
-
-    <div class="service">
-        <p>Men Fade</p>
-        <span>50 kr</span>
-    </div>
-
-    <div class="service">
-        <p>Kids Fade</p>
-        <span>30 kr</span>
-    </div>
-
-    <div class="service">
-        <p>Men Haircut with Fade</p>
-        <span>70 kr</span>
-    </div>
-
-    <div class="service">
-        <p>Kids Haircut with Fade</p>
-        <span>50 kr</span>
-    </div>
+<section id="prices">
+  <h2>Priser</h2>
+  <ul>
+    <li>Herrklippning – 50 kr</li>
+    <li>Barnklippning – 50 kr</li>
+    <li>Hår + Skägg – 70 kr</li>
+  </ul>
 </section>
 
-<!-- Booking Section -->
-<section id="boka">
-    <h2>Book an Appointment</h2>
+<section id="book">
+  <h2>Boka tid</h2>
+  <form id="bookingForm">
+    <input type="text" name="name" placeholder="Ditt namn" required>
+    <input type="tel" name="phone" placeholder="Telefonnummer" required>
+    <input type="email" name="email" placeholder="Din e-post" required>
 
-    <form id="bookingForm">
-        <input type="text" placeholder="Your Name" required><br>
-        <input type="email" placeholder="Your Email" required><br>
-        <input type="tel" placeholder="Phone Number" required><br>
+    <label for="service">Välj tjänst:</label>
+    <select name="service" id="service" required>
+      <option value="">--Välj tjänst--</option>
+      <option value="Herrklippning">Herrklippning – 50 kr</option>
+      <option value="Barnklippning">Barnklippning – 50 kr</option>
+      <option value="Hår+Skägg">Hår + Skägg – 70 kr</option>
+    </select>
 
-        <select required>
-            <option value="">Select Service</option>
-            <option>Men Fade - 50 kr</option>
-            <option>Kids Fade - 30 kr</option>
-            <option>Men Haircut with Fade - 70 kr</option>
-            <option>Kids Haircut with Fade - 50 kr</option>
-        </select><br>
+    <label for="barber">Välj frisör:</label>
+    <select name="barber" id="barber" required>
+      <option value="">--Välj frisör--</option>
+      <option value="Mo Cutz">Mo Cutz</option>
+      <option value="Midde Cutz">Midde Cutz</option>
+      <option value="Malle Cutz">Malle Cutz</option>
+    </select>
 
-        <input type="date" required><br>
-        <button type="submit">Book Now</button>
-    </form>
-
-    <p id="confirmation" style="display:none; margin-top:20px; color:#c59d5f; font-weight:bold;"></p>
+    <input type="date" name="date" required>
+    <input type="time" name="time" required>
+    <button type="submit">Boka</button>
+  </form>
 </section>
 
-<!-- JavaScript för bokning -->
+<section id="contact">
+  <h2>Kontakt</h2>
+  <p>📞 070-723 16 74</p>
+  <p>📧 mohamma.azimeh53@gmail.com</p>
+  <p>💬 <a href="https://wa.me/46707231674" target="_blank">WhatsApp</a></p>
+</section>
+
+<footer>
+  <p>© 2025 SHILIKO BARBER</p>
+</footer>
+
 <script>
-    const form = document.getElementById('bookingForm');
-    const confirmation = document.getElementById('confirmation');
+document.getElementById("bookingForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+  const form = this;
 
-    form.addEventListener('submit', function(e) {
-        e.preventDefault();
+  // Skicka till frisören
+  emailjs.sendForm(
+    "service_qoap3jo",
+    "template_5q0j3hv",
+    form
+  )
+  .then(function() { console.log("Mail skickat till frisören ✅"); })
+  .catch(function(error){ console.log("Fel till frisören ❌", error); });
 
-        const name = form.querySelector('input[type="text"]').value;
-        const email = form.querySelector('input[type="email"]').value;
-        const service = form.querySelector('select').value;
-        const date = form.querySelector('input[type="date"]').value;
-
-
-
-        confirmation.style.display = 'block';
-        confirmation.innerHTML = `
-            Thank you <strong>${name}</strong>!<br>
-            You have booked: <strong>${service}</strong> on <strong>${date}</strong>.<br>
-            We will contact you at <strong>${email} And contact ous on whatsapp to make sure </strong>.<br><br>
-            <strong>Address:</strong> Shiliko Barber, Rödhakevägen 67
-        `;
-
-        form.reset();
-    });
+  // Skicka till kunden
+  emailjs.send(
+    "service_s5siwwr",
+    "template_c8bbe89",
+    {
+      name: form.querySelector("[name=name]").value,
+      email: form.querySelector("[name=email]").value,
+      phone: form.querySelector("[name=phone]").value,
+      service: form.querySelector("[name=service]").value,
+      barber: form.querySelector("[name=barber]").value,
+      date: form.querySelector("[name=date]").value,
+      time: form.querySelector("[name=time]").value
+    }
+  )
+  .then(function() {
+    alert("Bokningen skickades! ✅ Du och kunden får mail med adressen Odengatan 56.");
+    form.reset();
+  })
+  .catch(function(error){ console.log("Fel till kunden ❌", error); });
+});
 </script>
-<!-- Contact Section -->
-<<section id="kontakt">
-    <h2>Contact Us</h2>
-    <p>Phone: 070-723 16 74</p>
-    <p>Email: <a href="mailto:mohammad.azimeh53@gmail.com">mohammad.azimeh53@gmail.com</a></p>
-    <p>
-        WhatsApp: 
-        <a href="https://wa.me/46707231674" target="_blank">Chat with us</a>
-    </p>
-</section>
 
-
-
+</body>
+</html>
